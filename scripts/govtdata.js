@@ -27,7 +27,7 @@ window.onload = function () {
         if (name.length <= 1) {
             document.getElementById("name").style.borderColor = "red";
             document.getElementById("name").value = "";
-            document.getElementById("labelname").innerHTML = "Please enter your name";
+            document.getElementById("labelname").innerHTML = "Please enter doctor's name";
             status.push("false");
         } else {
             status.push("true");
@@ -47,7 +47,7 @@ window.onload = function () {
             document.getElementById("pracid").style.borderColor = "red";
             document.getElementById("pracid").value = "";
             document.getElementById("labelpracid").innerHTML =
-                "Please enter valid National ID";
+                "Please enter valid Practioner ID";
             status.push("false");
         } else {
             status.push("true");
@@ -57,7 +57,7 @@ window.onload = function () {
             document.getElementById("clinicname").style.borderColor = "red";
             document.getElementById("clinicname").value = "";
             document.getElementById("labelclinicname").innerHTML =
-                "Please enter valid National ID";
+                "Please enter valid Clinic Name";
             status.push("false");
         } else {
             status.push("true");
