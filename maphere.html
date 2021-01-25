@@ -92,6 +92,7 @@
       const ageFrom = document.getElementById("ageFrom").value;
       const ageTo = document.getElementById("ageTo").value;
       const gender = document.getElementById("gender").value;
+      const organ = document.getElementById("organ").value;
       const severity = document.getElementById("severity").value;
       const symptoms = document.getElementById("symptoms").value;
       const country = document.getElementById("country").value;
@@ -122,6 +123,9 @@
       }
       if (dateTo.trim().length > 0) {
         url = url + `&dateTo=${dateTo}`;
+      }
+      if (organ.trim().length > 0) {
+        url = url + `&organ=${organ}`;
       }
 
       fetch(url)
