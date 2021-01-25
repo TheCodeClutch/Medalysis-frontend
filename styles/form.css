@@ -69,7 +69,7 @@
   
   input:focus, select
   textarea:focus {
-    border-color: #842243;
+    border-color: #00AAFE;
   }
   
   input,
@@ -92,8 +92,25 @@
     width: 50%;
     box-shadow: none;
   }
+
+  #filter-apply {
+    padding: 5px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #00AAFE;
+    color: white;
+    height: 40px;
+    margin-top: 10px;
+    width: 50%;
+    box-shadow: none;
+  }
   
   #submit-btn:hover {
+    background-color: #021758;
+    box-shadow: none;
+  }
+
+  #filter-apply:hover {
     background-color: #021758;
     box-shadow: none;
   }
