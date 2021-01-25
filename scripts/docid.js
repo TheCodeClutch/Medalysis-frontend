@@ -40,7 +40,7 @@ window.onload = function () {
             })
 
             fetch("https://medalysis.herokuapp.com/govt/get/id", {
-                method: "POST",
+                method: "GET",
                 headers: new Headers({ "content-type": "application/json" }),
                 body: JSON.stringify({
                     doctorId: pracid,
