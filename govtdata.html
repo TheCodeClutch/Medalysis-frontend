@@ -19,7 +19,7 @@
     <link rel="manifest" href="images/favicon/site.webmanifest" />
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/form.css" />
-  
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -45,7 +45,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light mt-3">
         <a class="navbar-brand" href="index.html">
-            <img src="images/medalysis-logo.jpg" alt="medalysis-logo" style="height: 60px; width: 200px;" alt="Medalysis" />
+            <img src="images/medalysis-logo.jpg" alt="medalysis-logo" style="height: 60px; width: 200px;"
+                alt="Medalysis" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +55,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
-                
+
                 <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
                     <a class="nav-link" href="map.html" style="color: #021758;">MEDICAL STATISTICS</a>
                 </li>
@@ -81,7 +82,7 @@
         </div>
     </nav>
     <!-- End of Navbar -->
-  
+
     <div id="main-page">
 
 
@@ -96,26 +97,44 @@
                     </div>
                     <div class="row">
 
+                        <!-- Name -->
+                        <div class="offset-md-1 col-10">
+                            <label id="labelname" for="name">Doctor name<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="name" name="" style="width: 100%;"
+                                title="Name" />
+                        </div>
+
+
                         <!-- National Id -->
-                        
-                            <div class="offset-md-1 col-10">
-                                <label id="labelnatid" for="natid">National ID<sup>*</sup></label>
-                                <input type="text" onfocus="purple(event)" id="natid" name="" style="width: 100%;"
-                                    title="National ID" />
-                            </div>
-                        
-                        
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelnatid" for="natid">National ID<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="natid" name="" style="width: 100%;"
+                                title="National ID" />
+                        </div>
+
+
                         <!-- Practioner Id -->
-                        
-                            <div class="offset-md-1 col-10">
-                                <label id="labelpracid" for="pracid">Practioner ID<sup>*</sup></label>
-                                <input type="text" onfocus="purple(event)" id="pracid" name="" style="width: 100%;"
-                                    title="Practioner ID" />
-                            </div>
-                        
-                        
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelpracid" for="pracid">Practioner ID<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="pracid" name="" style="width: 100%;"
+                                title="Practioner ID" />
+                        </div>
+
+
+                        <!-- Clinic Name -->
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelclinicname" for="clinicname">Clinic Name<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="clinicname" name="" style="width: 100%;"
+                                title="Clinic Name" />
+                        </div>
+
+
                         <!-- Submit -->
-                        <div class="offset-md-1 col-10" style="margin-top: 40px; text-align: center; margin-bottom: 60px;">
+                        <div class="offset-md-1 col-10"
+                            style="margin-top: 40px; text-align: center; margin-bottom: 60px;">
                             <input class="btn" type="button" value="Submit" id="submit-btn" style="color:white" />
                         </div>
 
@@ -141,7 +160,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./scripts/docid.js"></script>
+
+    <script src="./scripts/govtdata.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

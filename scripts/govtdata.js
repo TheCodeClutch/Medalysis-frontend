@@ -1,29 +1,63 @@
 // document.getElementById("preloader").style.display = "block";
 
-window.onload = function () {
+let latitude;
+let longitude;
 
+function showPosition(position) {
+    latitude = position.coords.latitude
+    longitude = position.coords.longitude;
+}
+
+window.onload = function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
 
     // document.getElementById("preloader").style.display = "none";
     document.getElementById("submit-btn").addEventListener("click", () => {
+        var name = document.getElementById("name").value;
         var natid = document.getElementById("natid").value;
         var pracid = document.getElementById("pracid").value;
+        var clinicname = document.getElementById("clinicname").value;
 
         let status = [];
 
-        if (natid.length <= 1) {
-            document.getElementById("natid").style.borderColor = "red";
-            document.getElementById("natid").value = "";
-            document.getElementById("labelnatid").innerHTML = "Please enter valid National Id";
+        if (name.length <= 1) {
+            document.getElementById("name").style.borderColor = "red";
+            document.getElementById("name").value = "";
+            document.getElementById("labelname").innerHTML = "Please enter your name";
             status.push("false");
         } else {
             status.push("true");
         }
 
-        if (pracid.length < 1) {
+        if (natid.length < 1) {
+            document.getElementById("natid").style.borderColor = "red";
+            document.getElementById("natid").value = "";
+            document.getElementById("labelnatid").innerHTML =
+                "Please enter valid National ID";
+            status.push("false");
+        } else {
+            status.push("true");
+        }
+
+        if (pracid.length <= 1) {
             document.getElementById("pracid").style.borderColor = "red";
             document.getElementById("pracid").value = "";
             document.getElementById("labelpracid").innerHTML =
-                "Please enter valid Practioner Id";
+                "Please enter valid National ID";
+            status.push("false");
+        } else {
+            status.push("true");
+        }
+
+        if (clinicname.length <= 1) {
+            document.getElementById("clinicname").style.borderColor = "red";
+            document.getElementById("clinicname").value = "";
+            document.getElementById("labelclinicname").innerHTML =
+                "Please enter valid National ID";
             status.push("false");
         } else {
             status.push("true");
@@ -35,16 +69,20 @@ window.onload = function () {
             document.getElementById("submit-btn").value = "Please wait...";
 
             console.log({
-                doctorId: pracid,
-                nationalId: natid,
+                name,
+                natid,
+                pracid,
+                clinicname,
             })
 
-            fetch("https://medalysis.herokuapp.com/govt/get/id", {
+            fetch("https://medalysis.herokuapp.com/govt/save/clinics", {
                 method: "POST",
                 headers: new Headers({ "content-type": "application/json" }),
                 body: JSON.stringify({
-                    doctorId: pracid,
+                    doctorName: name,
                     nationalId: natid,
+                    doctorId: pracid,
+                    clinicName: clinicname,
                 }),
             })
                 .then(function (response) {
@@ -56,25 +94,14 @@ window.onload = function () {
                         Swal.fire({
                             icon: "success",
                             title: "Yayyy",
-                            text: `Your Medalysis Id has been successfully generated :  ${res.id}`,
+                            text: "Your details have been successfully posted!",
                         });
                         document.getElementById("submit-btn").value = "Submit";
-
-                        let content = "";
-                        content = `<div class="card" id="medid">
-                        <h5 class="card-header" style="background-color: gainsboro;">Your Medalysis Id</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                            <div style="font-weight:bolder;padding:2px">${res.id}</div>
-                            </p>
-                        </div>
-                    </div>`
-                        document.getElementById('medid').innerHTML = content;
                     } else {
                         Swal.fire({
                             icon: "error",
                             title: "Oops..",
-                            text: "The Id is already generated!",
+                            text: "There was some error. Please try again!",
                         });
                         document.getElementById("submit-btn").value = "Submit";
                     }
@@ -88,7 +115,6 @@ window.onload = function () {
                     });
                     document.getElementById("submit-btn").value = "Submit";
                 });
-                
         }
     });
 };
