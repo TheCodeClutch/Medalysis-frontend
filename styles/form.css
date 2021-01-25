@@ -11,12 +11,12 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #da8979;
+    background: #475580;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #98234b;
+    background: #021758;
   }
   /* Custom Scrollbar */
   
