@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medalysis | Doctor's Id</title>
+    <!-- Bootstrap CDN -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/form.css" />
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <script>
+        function purple(event) {
+            event.target.style.borderColor = "#00AAFE";
+            event.target.style.borderWidth = "2px";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-12" id="preloader">
+
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light mt-3">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/medalysis-logo.jpg" alt="medalysis-logo" style="height: 60px; width: 200px;"
+                alt="Medalysis" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+
+                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+                    <a class="nav-link" href="map.html" style="color: #021758;">MEDICAL STATISTICS</a>
+                </li>
+                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+                    <a class="nav-link" href="form.html" style="color: #021758;">PATIENT DATA ENTRY</a>
+                </li>
+                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+                    <a class="nav-link" href="docid.html" style="color: #021758;">MEDALYSIS ID</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav ml-auto" id="login-signup">
+                <li class="nav-item dropdown" style="padding-right: 80px;">
+                    <a class="nav-link" href="#" id="navbar-item" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div id="user-navbar-details"></div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="profile.html">Your Profile</a>
+                        <a class="dropdown-item" href="index.html" onclick="logout(event);">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <div id="main-page">
+
+
+        <div class="container-fluid">
+            <div class="row" style="padding-top: 50px;">
+                <div class="col-12 col-lg-5 order-lg-2 mt-5">
+                    <div class="col-12" style="text-align: center;">
+                        <h2 style="color: #00AAFE;">Medalysis Id</h2>
+                        <h5 style="padding-top: 10px; color:#021758" class="mb-3">
+                            Generate a Medalysis Id to ensure that the data entered by our users is reliable
+                        </h5>
+                    </div>
+                    <div class="row">
+
+                        <!-- Name -->
+                        <div class="offset-md-1 col-10">
+                            <label id="labelname" for="name">Doctor name<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="name" name="" style="width: 100%;"
+                                title="Name" />
+                        </div>
+
+
+                        <!-- National Id -->
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelnatid" for="natid">National ID<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="natid" name="" style="width: 100%;"
+                                title="National ID" />
+                        </div>
+
+
+                        <!-- Practioner Id -->
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelpracid" for="pracid">Practioner ID<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="pracid" name="" style="width: 100%;"
+                                title="Practioner ID" />
+                        </div>
+
+
+                        <!-- Clinic Name -->
+
+                        <div class="offset-md-1 col-10">
+                            <label id="labelclinicname" for="clinicname">Clinic Name<sup>*</sup></label>
+                            <input type="text" onfocus="purple(event)" id="clinicname" name="" style="width: 100%;"
+                                title="Clinic Name" />
+                        </div>
+
+
+                        <!-- Submit -->
+                        <div class="offset-md-1 col-10"
+                            style="margin-top: 40px; text-align: center; margin-bottom: 60px;">
+                            <input class="btn" type="button" value="Submit" id="submit-btn" style="color:white" />
+                        </div>
+
+                        <!-- Medalysis Id-->
+                        <div class="offset-md-1 col-10" id="medid">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 order-lg-1 d-none d-lg-block"
+                    style="background: url('./images/gif1.gif') center center; background-image: contain; background-repeat: no-repeat; background-size: 700px 600px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="col-12" style="padding: 30px 0px; font-weight: bolder;">
+            &copy; Medalysis 2021 |
+            <a href="index.html" style="text-decoration: none;">About Us</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="./scripts/govtdata.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
