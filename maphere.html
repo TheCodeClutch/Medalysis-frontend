@@ -213,8 +213,8 @@
         });
 
       document.getElementById("filter-apply").addEventListener("click", () => {
-        const ageFrom;
-        const ageTo;
+        let ageFrom;
+        let ageTo;
         if(document.getElementById("age").value.split("-")[0]){
             ageFrom = document.getElementById("age").value.split("-")[0];
             ageTo = document.getElementById("age").value.split("-")[1];
