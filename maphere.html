@@ -213,8 +213,12 @@
         });
 
       document.getElementById("filter-apply").addEventListener("click", () => {
-        const ageFrom = document.getElementById("age").value.split("-")[0];
-        const ageTo = document.getElementById("age").value.split("-")[1];
+        const ageFrom;
+        const ageTo;
+        if(document.getElementById("age").value.split("-")[0]){
+            ageFrom = document.getElementById("age").value.split("-")[0];
+            ageTo = document.getElementById("age").value.split("-")[1];
+        }
         const gender = document.getElementById("gender").value;
 
         const organ = document.getElementById("organ").value;
@@ -237,10 +241,10 @@
         if (country.trim().length > 0) {
           url = url + `&country=${country}`;
         }
-        if (ageFrom.trim().length > 0) {
+        if (ageFrom && ageFrom.trim().length > 0) {
           url = url + `&ageFrom=${ageFrom}`;
         }
-        if (ageTo.trim().length > 0) {
+        if (ageTo && ageTo.trim().length > 0) {
           url = url + `&ageTo=${ageTo}`;
         }
         if (year.trim().length > 0) {
