@@ -72,6 +72,7 @@ window.onload = function () {
       document.getElementById("submit-btn").value = "Please wait...";
 
       console.log({
+        submissionid : medid,
         gender,
         age,
         latitude,
@@ -85,7 +86,7 @@ window.onload = function () {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
         body: JSON.stringify({
-          submissionid : medid,
+          submissionId : medid,
           gender,
           age,
           latitude,
