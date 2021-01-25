@@ -31,9 +31,141 @@
   </head>
 
   <body>
+    <!-- HTML for filters section -->
+
+    <div class="container-fluid">
+      <div class="row" style="padding-top: 30px">
+        <!-- Gender -->
+        <div class="col-lg-2">
+          <div class="dropdown" style="padding-top: 20px">
+            <select class="form-control gender-btn" id="gender">
+              <option value="" selected disabled hidden>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="col-lg-2">
+          <div class="dropdown" style="padding-top: 20px">
+            <select class="form-control gender-btn" id="age">
+              <option value="" selected disabled hidden>Age</option>
+              <option value="0-10">0-10</option>
+              <option value="11-20">11-20</option>
+              <option value="21-30">21-30</option>
+              <option value="31-40">31-40</option>
+              <option value="41-50">41-50</option>
+              <option value="51-60">51-60</option>
+              <option value="61-70">61-70</option>
+              <option value="71-80">71-80</option>
+              <option value="81-90">81-90</option>
+              <option value="91-100">91-100</option>
+              <option value="101-500">100+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Severity -->
+        <div class="col-lg-2">
+          <div class="dropdown" style="padding-top: 20px">
+            <select class="form-control gender-btn" id="severity">
+              <option value="" selected disabled hidden>Severity</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="col-lg-2">
+          <div class="dropdown" style="padding-top: 20px">
+            <input list="symptoms-list" type="text" id="symptoms" autocomplete>
+            <datalist id="symptoms-list">
+
+            </datalist>
+          </div>
+        </div>
+
+        <!-- Organs -->
+        <div class="col-2">
+          <div class="dropdown" style="padding-top: 21px">
+            <select class="form-control organ-btn" id="organ">
+              <option value="" selected disabled hidden>
+                Disease related to*
+              </option>
+              <option>Brain</option>
+              <option>Lungs</option>
+              <option>Heart</option>
+              <option>Kidney</option>
+              <option>Liver</option>
+              <option>Stomach</option>
+              <option>ENT(Ear/Nose/Throat)</option>
+              <option>Multiple/Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Country -->
+        <select name="country" class="countries order-alpha" id="countryId">
+          <option value="">Select Country</option>
+        </select>
+        <select
+          name="state"
+          class="states order-alpha"
+          id="stateId"
+          style="display: none"
+        >
+          <option value="">Select State</option>
+        </select>
+
+        <!-- Date - From -->
+        <div class="col-2">
+          <input type="date" id="dateFrom" />
+        </div>
+
+        <!-- Date - To -->
+        <div class="col-2">
+          <input type="date" id="dateTo" />
+        </div>
+      </div>
+    </div>
+
+    <button id="filter-apply">Filter apply</button>
+
     <!--In the div HERE Map will be rendered-->
     <div style="width: 100vw; height: 100vh" id="mapContainer"></div>
     <script>
+
+
+
+        function autoComplete(arr){
+            console.log(arr)
+            let html = ``
+            arr.forEach(ele => {
+                html += `<option value="${ele.SYMPTOMS}">`
+            })
+            document.getElementById("symptoms-list").innerHTML = html;
+        }
+
+
+        document.getElementById('symptoms').addEventListener('input', () => {
+            const val = document.getElementById('symptoms').value
+            fetch(`https://medalysis.herokuapp.com/core/search?q=${val}`)
+                .then(res => res.json())
+                .then(res => {
+                    res = res.message
+                    autoComplete(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        })
+
+
+
       //Step 1: initialize communication with the platform
       // Replace variable YOUR_API_KEY with your own apikey
       var platform = new H.service.Platform({
@@ -82,76 +214,79 @@
           console.log(res);
         });
 
-      // Age - from to
-      // Gender - male/female/trans
-      // Severity
-      // Symptoms - Dropdown Backend
-      // Country - Dropdown Backend
-      // Date - from and to
+      document.getElementById("filter-apply").addEventListener("click", () => {
+        const ageFrom = document.getElementById("age").value.split("-")[0];
+        const ageTo = document.getElementById("age").value.split("-")[1];
+        const gender = document.getElementById("gender").value;
 
-      const ageFrom = document.getElementById("ageFrom").value;
-      const ageTo = document.getElementById("ageTo").value;
-      const gender = document.getElementById("gender").value;
-      const organ = document.getElementById("organ").value;
-      const severity = document.getElementById("severity").value;
-      const symptoms = document.getElementById("symptoms").value;
-      const country = document.getElementById("country").value;
-      const dateFrom = document.getElementById("dateFrom").value;
-      const dateTo = document.getElementById("dateTo").value;
+        const organ = document.getElementById("organ").value;
+        const severity = document.getElementById("severity").value;
+        const symptoms = document.getElementById("symptoms").value;
 
-      let url = `https://medalysis.herokuapp.com/core/get/filterdata?`;
-      if (gender.trim().length > 0) {
-        url = url + `gender=${gender}`;
-      }
-      if (severity.trim().length > 0) {
-        url = url + `&severity=${severity}`;
-      }
-      if (symptoms.trim().length > 0) {
-        url = url + `&symptoms=${symptoms}`;
-      }
-      if (country.trim().length > 0) {
-        url = url + `&country=${country}`;
-      }
-      if (ageFrom.trim().length > 0) {
-        url = url + `&ageFrom=${ageFrom}`;
-      }
-      if (ageTo.trim().length > 0) {
-        url = url + `&ageTo=${ageTo}`;
-      }
-      if (dateFrom.trim().length > 0) {
-        url = url + `&dateFrom=${dateFrom}`;
-      }
-      if (dateTo.trim().length > 0) {
-        url = url + `&dateTo=${dateTo}`;
-      }
-      if (organ.trim().length > 0) {
-        url = url + `&organ=${organ}`;
-      }
+        const country = document.getElementById("countryId").value;
+        const dateFrom = document.getElementById("dateFrom").value;
+        const dateTo = document.getElementById("dateTo").value;
 
-      fetch(url)
-        .then((res) => res.json())
-        .then((res) => {
-          const arr = res.message;
-          arr.forEach((ele) => {
-            var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
+        let url = `https://medalysis.herokuapp.com/core/get/filterdata?`;
+        if (gender.trim().length > 0) {
+          url = url + `gender=${gender}`;
+        }
+        if (severity.trim().length > 0) {
+          url = url + `&severity=${severity}`;
+        }
+        if (symptoms.trim().length > 0) {
+          url = url + `&symptoms=${symptoms}`;
+        }
+        if (country.trim().length > 0) {
+          url = url + `&country=${country}`;
+        }
+        if (ageFrom.trim().length > 0) {
+          url = url + `&ageFrom=${ageFrom}`;
+        }
+        if (ageTo.trim().length > 0) {
+          url = url + `&ageTo=${ageTo}`;
+        }
+        if (dateFrom.trim().length > 0) {
+          url = url + `&dateFrom=${dateFrom}`;
+        }
+        if (dateTo.trim().length > 0) {
+          url = url + `&dateTo=${dateTo}`;
+        }
+        if (organ.trim().length > 0) {
+          url = url + `&organ=${organ}`;
+        }
 
-            // optionally - resize a larger PNG image to a specific size
-            var pngIcon = new H.map.Icon(
-              "https://cdn3.iconfinder.com/data/icons/tourism/eiffel200.png",
-              { size: { w: 56, h: 56 } }
-            );
+        console.log(url);
 
-            // Create a marker using the previously instantiated icon:
-            var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
+        //   fetch(url)
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //       const arr = res.message;
+        //       arr.forEach((ele) => {
+        //         var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
 
-            // Add the marker to the map:
-            map.addObject(marker);
-          });
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        //         // optionally - resize a larger PNG image to a specific size
+        //         var pngIcon = new H.map.Icon(
+        //           "https://cdn3.iconfinder.com/data/icons/tourism/eiffel200.png",
+        //           { size: { w: 56, h: 56 } }
+        //         );
+
+        //         // Create a marker using the previously instantiated icon:
+        //         var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
+
+        //         // Add the marker to the map:
+        //         map.addObject(marker);
+        //       });
+        //       console.log(res);
+        //     })
+        //     .catch((err) => {
+        //       console.log(err);
+        //     });
+      });
     </script>
+
+    <!-- Geodata.solutions -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//geodata.solutions/includes/countrystate.js"></script>
   </body>
 </html>
