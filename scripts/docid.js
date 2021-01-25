@@ -39,13 +39,9 @@ window.onload = function () {
                 nationalId: natid,
             })
 
-            fetch("https://medalysis.herokuapp.com/govt/get/id", {
+            fetch("https://medalysis.herokuapp.com/govt/get/id?q", {
                 method: "GET",
                 headers: new Headers({ "content-type": "application/json" }),
-                body: JSON.stringify({
-                    doctorId: pracid,
-                    nationalId: natid,
-                }),
             })
                 .then(function (response) {
                     return response.json();
