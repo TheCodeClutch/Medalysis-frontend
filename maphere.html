@@ -2,386 +2,392 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- HERE JavaScript Libs & Style Sheets-->
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-    <!-- HERE JavaScript Libs & Style Sheets end-->
-    <!-- Bootstrap CDN -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-    <title>Map with markers</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- HERE JavaScript Libs & Style Sheets-->
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <!-- HERE JavaScript Libs & Style Sheets end-->
+  <!-- Bootstrap CDN -->
+  <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <title>Map with markers</title>
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Styles -->
-    <link rel="stylesheet" href="./styles/form.css" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles/form.css" />
 
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.jpg" alt="medalysis-logo" style="height: 70px; width: 180px;" alt="Medalysis" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.jpg" alt="medalysis-logo" style="height: 70px; width: 180px;" alt="Medalysis" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto">
 
-                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
-                    <a class="nav-link" href="maphere.html" style="color: #021758;">MEDICAL STATISTICS</a>
-                </li>
-                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
-                    <a class="nav-link" href="form.html" style="color: #021758;">PATIENT DATA ENTRY</a>
-                </li>
-                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
-                    <a class="nav-link" href="docid.html" style="color: #021758;">MEDALYSIS ID</a>
-                </li>
-                <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
-                    <a class="nav-link" href="govtdata.html" style="color: #021758;">AUTHORISATION OF DOCTORS BY GOVERNMENT</a>
-                </li>
-            </ul>
+        <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+          <a class="nav-link" href="maphere.html" style="color: #021758;">MEDICAL STATISTICS</a>
+        </li>
+        <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+          <a class="nav-link" href="form.html" style="color: #021758;">PATIENT DATA ENTRY</a>
+        </li>
+        <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+          <a class="nav-link" href="docid.html" style="color: #021758;">MEDALYSIS ID</a>
+        </li>
+        <li class="nav-item" style="padding-left: 20px; padding-right: 20px;">
+          <a class="nav-link" href="govtdata.html" style="color: #021758;">AUTHORISATION OF DOCTORS BY GOVERNMENT</a>
+        </li>
+      </ul>
 
-            <ul class="nav navbar-nav ml-auto" id="login-signup">
+      <ul class="nav navbar-nav ml-auto" id="login-signup">
 
-            </ul>
+      </ul>
+    </div>
+  </nav>
+  <!-- End of Navbar -->
+  <!-- HTML for filters section -->
+
+  <div class="container-fluid">
+    <div class="row" style="padding-top: 50px; text-align: center;">
+      <div class="col-12">
+        <h2 style="color: #00AAFE;">Apply filters to see the trends</h2>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 50px;">
+      <div class="col-lg-2"></div>
+      <!-- Gender -->
+      <div class="col-lg-2">
+        <div class="dropdown">
+          <select class="form-control gender-btn" id="gender">
+            <option value="" selected disabled hidden>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
-    </nav>
-    <!-- End of Navbar -->
-    <!-- HTML for filters section -->
+      </div>
 
-    <div class="container-fluid">
-        <div class="row" style="padding-top: 50px; text-align: center;">
-            <div class="col-12">
-                <h2 style="color: #00AAFE;">Apply filters to see the trends</h2>
-            </div>
+      <!-- Age -->
+      <div class="col-lg-2">
+        <div class="dropdown">
+          <select class="form-control gender-btn" id="age">
+            <option value="" selected disabled hidden>Age</option>
+            <option value="0-10">0-10</option>
+            <option value="11-20">11-20</option>
+            <option value="21-30">21-30</option>
+            <option value="31-40">31-40</option>
+            <option value="41-50">41-50</option>
+            <option value="51-60">51-60</option>
+            <option value="61-70">61-70</option>
+            <option value="71-80">71-80</option>
+            <option value="81-90">81-90</option>
+            <option value="91-100">91-100</option>
+            <option value="101-500">100+</option>
+          </select>
         </div>
-        <div class="row" style="padding-top: 50px;">
-            <div class="col-lg-2"></div>
-            <!-- Gender -->
-            <div class="col-lg-2">
-                <div class="dropdown">
-                    <select class="form-control gender-btn" id="gender">
-                        <option value="" selected disabled hidden>Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
+      </div>
 
-            <!-- Age -->
-            <div class="col-lg-2">
-                <div class="dropdown">
-                    <select class="form-control gender-btn" id="age">
-                        <option value="" selected disabled hidden>Age</option>
-                        <option value="0-10">0-10</option>
-                        <option value="11-20">11-20</option>
-                        <option value="21-30">21-30</option>
-                        <option value="31-40">31-40</option>
-                        <option value="41-50">41-50</option>
-                        <option value="51-60">51-60</option>
-                        <option value="61-70">61-70</option>
-                        <option value="71-80">71-80</option>
-                        <option value="81-90">81-90</option>
-                        <option value="91-100">91-100</option>
-                        <option value="101-500">100+</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Severity -->
-            <div class="col-lg-2">
-                <div class="dropdown">
-                    <select class="form-control gender-btn" id="severity">
-                        <option value="" selected disabled hidden>Severity</option>
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Symptoms -->
-            <div class="col-lg-2">
-                <div class="dropdown" style="color: black;">
-                    <input list="symptoms-list" type="text" id="symptoms" class="form-control gender-btn" placeholder="Symptoms" autocomplete>
-                    <datalist id="symptoms-list">
-
-                    </datalist>
-                </div>
-            </div>
-
-            <div class="col-lg-2"></div>
+      <!-- Severity -->
+      <div class="col-lg-2">
+        <div class="dropdown">
+          <select class="form-control gender-btn" id="severity">
+            <option value="" selected disabled hidden>Severity</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
         </div>
-        <div class="row" style="padding-top: 30px">
-            <div class="col-lg-3"></div>
+      </div>
 
-            <!-- Organs -->
-            <div class="col-lg-2">
-                <div class="dropdown">
-                    <select class="form-control organ-btn" id="organ">
-                        <option value="" selected disabled hidden>
-                            Disease related to*
-                        </option>
-                        <option>Brain</option>
-                        <option>Lungs</option>
-                        <option>Heart</option>
-                        <option>Kidney</option>
-                        <option>Liver</option>
-                        <option>Stomach</option>
-                        <option>ENT(Ear/Nose/Throat)</option>
-                        <option>Multiple/Other</option>
-                    </select>
-                </div>
-            </div>
+      <!-- Symptoms -->
+      <div class="col-lg-2">
+        <div class="dropdown" style="color: black;">
+          <input list="symptoms-list" type="text" id="symptoms" class="form-control gender-btn" placeholder="Symptoms"
+            autocomplete>
+          <datalist id="symptoms-list">
 
-            <!-- Country -->
-            <div class="col-lg-2">
-                <select name="country" class="countries order-alpha form-control gender-btn" id="countryId">
-                    <option value="">Select Country</option>
-                </select>
-                <select name="state" class="states order-alpha" id="stateId" style="display: none">
-                    <option value="">Select State</option>
-                </select>
-            </div>
-
-            <!-- Date - From -->
-            <div class="col-lg-2">
-                <input type="number" id="year" min="1900" max="2099" step="1" value="2021"
-                    class="form-control gender-btn" />
-            </div>
-            <div class="col-lg-3"></div>
+          </datalist>
         </div>
+      </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-12"></div>
-            <div class="col-4" style="margin-top: 40px; text-align: center; margin-bottom: 60px;">
-                <input type="button" value="Filter Apply" id="filter-apply" style="color:white">
-            </div>
-            <div class="col-lg-4 col-12"></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row" style="padding-top: 30px">
+      <div class="col-lg-3"></div>
+
+      <!-- Organs -->
+      <div class="col-lg-2">
+        <div class="dropdown">
+          <select class="form-control organ-btn" id="organ">
+            <option value="" selected disabled hidden>
+              Disease related to*
+            </option>
+            <option>Brain</option>
+            <option>Lungs</option>
+            <option>Heart</option>
+            <option>Kidney</option>
+            <option>Liver</option>
+            <option>Stomach</option>
+            <option>ENT(Ear/Nose/Throat)</option>
+            <option>Multiple/Other</option>
+          </select>
         </div>
+      </div>
 
-        <!--In the div HERE Map will be rendered-->
-        <div class="row">
-            <div class="row">
+      <!-- Country -->
+      <div class="col-lg-2">
+        <select name="country" class="countries order-alpha form-control gender-btn" id="countryId">
+          <option value="">Select Country</option>
+        </select>
+        <select name="state" class="states order-alpha" id="stateId" style="display: none">
+          <option value="">Select State</option>
+        </select>
+      </div>
 
-            </div>
-        </div>
-        <h2 style="color: #00AAFE; text-align: center; margin-top: 40px;">See the Map by applying the above filters</h2>
-        <div style="width: 50vw; height: 50vh; margin-top: 50px; margin-bottom: 100px;" id="mapContainer"></div>
+      <!-- Date - From -->
+      <div class="col-lg-2">
+        <input type="number" id="year" min="1900" max="2099" step="1" value="2021" class="form-control gender-btn" />
+      </div>
+      <div class="col-lg-3"></div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="col-12" style="padding: 30px 0px; font-weight: bolder;">
-            &copy; Medalysis 2021 |
-            <a href="index.html" style="text-decoration: none;">About Us</a>
-        </div>
-    </footer>
+    <div class="row">
+      <div class="col-lg-4 col-12"></div>
+      <div class="col-4" style="margin-top: 40px; text-align: center; margin-bottom: 60px;">
+        <input type="button" value="Filter Apply" id="filter-apply" style="color:white">
+      </div>
+      <div class="col-lg-4 col-12"></div>
+    </div>
 
-    <script>
+    <!--In the div HERE Map will be rendered-->
+    <div class="row">
+      <div class="row">
 
-        let globalMarkers = []
+      </div>
+    </div>
+    <h2 style="color: #00AAFE; text-align: center; margin-top: 40px;">See the Map by applying the above filters</h2>
+    <div class="row text-center" style="text-align: center">
+      <div class="col-12 text-center">
+        <div style="margin-left:200px; width: 70vw; height: 55vh; margin-top: 50px; margin-bottom: 100px;" id="mapContainer"></div>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="col-12" style="padding: 30px 0px; font-weight: bolder;">
+      &copy; Medalysis 2021 |
+      <a href="index.html" style="text-decoration: none;">About Us</a>
+    </div>
+  </footer>
+
+  <script>
+
+    let globalMarkers = []
 
 
-        function autoComplete(arr) {
-            console.log(arr)
-            let html = ``
-            arr.forEach(ele => {
-                html += `<option value="${ele.SYMPTOMS}">`
-            })
-            document.getElementById("symptoms-list").innerHTML = html;
-        }
+    function autoComplete(arr) {
+      console.log(arr)
+      let html = ``
+      arr.forEach(ele => {
+        html += `<option value="${ele.SYMPTOMS}">`
+      })
+      document.getElementById("symptoms-list").innerHTML = html;
+    }
 
 
-        document.getElementById('symptoms').addEventListener('input', () => {
-            const val = document.getElementById('symptoms').value
-            fetch(`https://medalysis.herokuapp.com/core/search?q=${val}`)
-                .then(res => res.json())
-                .then(res => {
-                    res = res.message
-                    autoComplete(res)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+    document.getElementById('symptoms').addEventListener('input', () => {
+      const val = document.getElementById('symptoms').value
+      fetch(`https://medalysis.herokuapp.com/core/search?q=${val}`)
+        .then(res => res.json())
+        .then(res => {
+          res = res.message
+          autoComplete(res)
         })
+        .catch(err => {
+          console.log(err)
+        })
+    })
 
 
 
-        //Step 1: initialize communication with the platform
-        // Replace variable YOUR_API_KEY with your own apikey
-        var platform = new H.service.Platform({
-            apikey: "2NsF8QpnqkzPxXhurvjfamd5IiJJ5yaVzAMCLi9Xyv0",
+    //Step 1: initialize communication with the platform
+    // Replace variable YOUR_API_KEY with your own apikey
+    var platform = new H.service.Platform({
+      apikey: "2NsF8QpnqkzPxXhurvjfamd5IiJJ5yaVzAMCLi9Xyv0",
+    });
+    var defaultLayers = platform.createDefaultLayers();
+    //Step 2: initialize a map - this map is centered over Europe
+    var map = new H.Map(
+      document.getElementById("mapContainer"),
+      defaultLayers.vector.normal.map,
+      {
+        center: { lat: 50, lng: 5 },
+        zoom: 2,
+        pixelRatio: window.devicePixelRatio || 1,
+      }
+    );
+    // This adds a resize listener to make sure that the map occupies the whole container
+    window.addEventListener("resize", () => map.getViewPort().resize());
+    //Step 3: make the map interactive
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Create the default UI components
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+    fetch("https://medalysis.herokuapp.com/core/get/data")
+      .then((res) => res.json())
+      .then((res) => {
+        const arr = res.message;
+        arr.forEach((ele) => {
+          var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
+
+          // optionally - resize a larger PNG image to a specific size
+          var pngIcon = new H.map.Icon(
+            "images/Marker.png",
+            { size: { w: 56, h: 56 } }
+          );
+
+          // Create a marker using the previously instantiated icon:
+          var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
+
+          // Add the marker to the map:
+          map.addObject(marker);
+          globalMarkers.push(marker)
         });
-        var defaultLayers = platform.createDefaultLayers();
-        //Step 2: initialize a map - this map is centered over Europe
-        var map = new H.Map(
-            document.getElementById("mapContainer"),
-            defaultLayers.vector.normal.map,
-            {
-                center: { lat: 50, lng: 5 },
-                zoom: 1,
-                pixelRatio: window.devicePixelRatio || 1,
-            }
-        );
-        // This adds a resize listener to make sure that the map occupies the whole container
-        window.addEventListener("resize", () => map.getViewPort().resize());
-        //Step 3: make the map interactive
-        // MapEvents enables the event system
-        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+        console.log(res);
+      });
 
-        // Create the default UI components
-        var ui = H.ui.UI.createDefault(map, defaultLayers);
+    document.getElementById("filter-apply").addEventListener("click", () => {
+      let ageFrom;
+      let ageTo;
+      if (document.getElementById("age").value.split("-")[0]) {
+        ageFrom = document.getElementById("age").value.split("-")[0];
+        ageTo = document.getElementById("age").value.split("-")[1];
+      }
+      const gender = document.getElementById("gender").value;
 
-        fetch("https://medalysis.herokuapp.com/core/get/data")
-            .then((res) => res.json())
-            .then((res) => {
-                const arr = res.message;
-                arr.forEach((ele) => {
-                    var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
+      const organ = document.getElementById("organ").value;
+      const severity = document.getElementById("severity").value;
+      const symptoms = document.getElementById("symptoms").value;
 
-                    // optionally - resize a larger PNG image to a specific size
-                    var pngIcon = new H.map.Icon(
-                        "https://cdn3.iconfinder.com/data/icons/tourism/eiffel200.png",
-                        { size: { w: 56, h: 56 } }
-                    );
+      const country = document.getElementById("countryId").value;
+      const year = document.getElementById("year").value;
 
-                    // Create a marker using the previously instantiated icon:
-                    var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
+      let url = `https://medalysis.herokuapp.com/core/get/filterdata?`;
+      if (gender.trim().length > 0) {
+        url = url + `gender=${gender}`;
+      }
+      if (severity.trim().length > 0) {
+        url = url + `&severity=${severity}`;
+      }
+      if (symptoms.trim().length > 0) {
+        url = url + `&symptoms=${symptoms}`;
+      }
+      if (country.trim().length > 0) {
+        url = url + `&country=${country}`;
+      }
+      if (ageFrom && ageFrom.trim().length > 0) {
+        url = url + `&ageFrom=${ageFrom}`;
+      }
+      if (ageTo && ageTo.trim().length > 0) {
+        url = url + `&ageTo=${ageTo}`;
+      }
+      if (year.trim().length > 0) {
+        url = url + `&year=${year}`;
+      }
+      if (organ.trim().length > 0) {
+        url = url + `&organ=${organ}`;
+      }
 
-                    // Add the marker to the map:
-                    map.addObject(marker);
-                    globalMarkers.push(marker)
-                });
-                console.log(res);
-            });
+      console.log(url);
 
-        document.getElementById("filter-apply").addEventListener("click", () => {
-            let ageFrom;
-            let ageTo;
-            if (document.getElementById("age").value.split("-")[0]) {
-                ageFrom = document.getElementById("age").value.split("-")[0];
-                ageTo = document.getElementById("age").value.split("-")[1];
-            }
-            const gender = document.getElementById("gender").value;
+      fetch(url)
+        .then((res) => res.json())
+        .then((res) => {
+          if (globalMarkers.length > 0) {
+            map.removeObjects(globalMarkers)
+            globalMarkers = [];
+          }
+          const arr = res.message;
+          arr.forEach((ele) => {
+            var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
 
-            const organ = document.getElementById("organ").value;
-            const severity = document.getElementById("severity").value;
-            const symptoms = document.getElementById("symptoms").value;
+            // optionally - resize a larger PNG image to a specific size
+            var pngIcon = new H.map.Icon(
+              "images/Marker.png",
+              { size: { w: 98, h: 70 } }
+            );
 
-            const country = document.getElementById("countryId").value;
-            const year = document.getElementById("year").value;
+            // Create a marker using the previously instantiated icon:
+            var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
 
-            let url = `https://medalysis.herokuapp.com/core/get/filterdata?`;
-            if (gender.trim().length > 0) {
-                url = url + `gender=${gender}`;
-            }
-            if (severity.trim().length > 0) {
-                url = url + `&severity=${severity}`;
-            }
-            if (symptoms.trim().length > 0) {
-                url = url + `&symptoms=${symptoms}`;
-            }
-            if (country.trim().length > 0) {
-                url = url + `&country=${country}`;
-            }
-            if (ageFrom && ageFrom.trim().length > 0) {
-                url = url + `&ageFrom=${ageFrom}`;
-            }
-            if (ageTo && ageTo.trim().length > 0) {
-                url = url + `&ageTo=${ageTo}`;
-            }
-            if (year.trim().length > 0) {
-                url = url + `&year=${year}`;
-            }
-            if (organ.trim().length > 0) {
-                url = url + `&organ=${organ}`;
-            }
-
-            console.log(url);
-
-            fetch(url)
-                .then((res) => res.json())
-                .then((res) => {
-                    if (globalMarkers.length > 0) {
-                        map.removeObjects(globalMarkers)
-                        globalMarkers = [];
-                    }
-                    const arr = res.message;
-                    arr.forEach((ele) => {
-                        var LocationOfMarker = { lat: ele.LATITUDE, lng: ele.LONGITUDE };
-
-                        // optionally - resize a larger PNG image to a specific size
-                        var pngIcon = new H.map.Icon(
-                            "https://cdn3.iconfinder.com/data/icons/tourism/eiffel200.png",
-                            { size: { w: 56, h: 56 } }
-                        );
-
-                        // Create a marker using the previously instantiated icon:
-                        var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
-
-                        // Add the marker to the map:
-                        map.addObject(marker);
-                        globalMarkers.push(marker)
-                    });
-                    console.log(res);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            // Add the marker to the map:
+            map.addObject(marker);
+            globalMarkers.push(marker)
+          });
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
         });
-    </script>
+    });
+  </script>
 
-    <!-- Scripts -->
+  <!-- Scripts -->
 
-    <script src="./scripts/govtdata.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+  <script src="./scripts/govtdata.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 
-    <!-- Geodata.solutions -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//geodata.solutions/includes/countrystate.js"></script>
+  <!-- Geodata.solutions -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//geodata.solutions/includes/countrystate.js"></script>
 </body>
 
 </html>
